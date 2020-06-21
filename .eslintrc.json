@@ -11,7 +11,9 @@
     "react/prefer-stateless-function": 0,
     "react/jsx-filename-extension": 0,
     "react/prop-types": 0,
-    "space-before-blocks": 0 
+    "space-before-blocks": 0 ,
+    "indent": 0,
+    "react/jsx-indent": 0
   },
   "parser": "babel-eslint"
 }
