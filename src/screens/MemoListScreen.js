@@ -5,11 +5,30 @@ import MemoList from '../components/MemoList';
 import CircleButton from '../elements/CircleButton';
 
 class MemoListScreen extends React.Component {
+  componentDidMount() {
+    const { currentUser } = firebase.auth();
+    const db = firebase.firestore;
+    firebase.firestore().collection(`users/${currentUser.uid}/memos`)
+      .get()
+      .then((snapshot) => {
+        snapshot, forWach((doc) => {
+          console.log(doc);
+        })
+      })
+      .catch((error) => {
+
+      });
+  }
+
+  handlePress() {
+    this.props.navigation.navigate('MemoCreate');
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <MemoList navigation={this.props.navigation} />
-        <CircleButton onPress= {() => { this.props.navigation.navigate('MemoEdit'); }}>
+        <CircleButton onPress={this.handlePress.bind(this)}>
           {'\uf067'}
         </CircleButton>
       </View>
