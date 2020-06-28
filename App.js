@@ -9,6 +9,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { CardStyleInterpolators } from 'react-navigation-stack';
 import firebase from 'firebase';
 import ENV from './env.json';
+import { Platform } from 'react-native'
 
 require("firebase/firestore");
 
@@ -41,6 +42,16 @@ const App = createStackNavigator({
       cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
       headerStyle: {
         backgroundColor: '#265366',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
+        ...Platform.select({
+          android: {
+            height: 80,
+            paddingTop: 20,
+          },
+        }),
       },
       headerTitleStyle: {
         color: '#fff',

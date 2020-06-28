@@ -35,7 +35,7 @@ class MemoDetailScreen extends React.Component {
         <View>
           <View style={styles.memoHeader}>
             <View>
-              <Text style={styles.memoHeaderTitle}>{memo.body.substring(0, 10)}</Text>
+              <Text style={styles.memoHeaderTitle}>{memo.body? memo.body.substring(0, 10) : ''}</Text>
               <Text style={styles.memoHeaderDate}>{dateString(memo.createdOn)}</Text>
             </View>
           </View>
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   editButton: {
-    top: 75,
+    top: 68,
   },
   memoBody: {
     lineHeight: 22,
